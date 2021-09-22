@@ -53,13 +53,13 @@ sorting=ynt
 \addbibresource{bibliography.bib}
 
 \usepackage{makeidx}\makeindex 
-\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+\input{Inputs/structure} % Insert the commands.tex file which contains the majority of the structure behind the template
 
 \begin{document}
-\input{circuits_definations}
+\input{Inputs/circuits_definations}
 \title{Clustering the interstellar medium}
 
-\include{intro}
+\include{Inputs/intro}
 
 \include{toc}
 
@@ -71,10 +71,10 @@ sorting=ynt
 % - Motor
 %-------------------
 
-\include{chap1}
-\include{chap2}
-\include{chap3}
-\include{chap4}
+\include{Chapters/chap1}
+\include{Chapters/chap2}
+\include{Chapters/chap3}
+\include{Chapters/chap4}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
