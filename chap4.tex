@@ -1,0 +1,81 @@
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapterimage{head1.png} % Chapter heading image
+
+\chapter{555}
+
+\section{Overview}
+In this section you'll learn about one of the most famous integrated circuit (IC) in use. Each year millions of 555 Timer ICs are manufactured and sold.
+It's named 555 because there are three \SI{5}{\kilo\ohm} resistors inside the IC. And as the name suggest, it is a timer circuit. The timing interval is controlled by an external resistor/capacitor network. And by changing the values for the resistor and capacitor the timing duration can be easily varied.
+
+Let's take a look at the pins of 555 Timer IC:
+\begin{enumerate}
+    \item \textbf{GND - Pin 1} Ground pin of the IC
+    \item \textbf{VCC - Pin 8} Positive supply is connected to this pin, the voltage must be at least \SI{4.5}{\volt} and maximum \SI{15}{\volt}.
+    \item \textbf{OUT - Pin 3} The output is either low (close to \SI{0}{\volt}) or high (close to VCC).
+    \item \textbf{TRG - Pin 2} Trigger is active low, which means when the voltage on this pin drops below one-third of the supply voltage, the output of 555 goes high.
+    \item \textbf{DIS - Pin 7} This pin is used to discharge an external capacitor that works in conjunction with a resistor to control the timing of the 555 IC.
+    \item \textbf{THR - Pin 6} Threshold pin is used to monitor the voltage across the capacitor that's discharged by pin 7. When this voltage reaches two-third of the supply voltage, the output goes low.
+    \item \textbf{CTRL - Pin 5} Control pin can be used to vary the voltage level at the inverting input of the threshold comparator. It is generally connected to ground via \SI{0.01}{\micro\farad} capacitor to eliminate any fluctuation on noise in the operation of the timer.
+    \item \textbf{RST - Pin 4} Reset pin is active low, which means when this pin is momentarily grounded the 555 timer will reset it's state and will stop until it is triggered again.
+\end{enumerate}
+
+\begin{figure}[htp]
+    \centering
+    \begin{circuitikz}[scale = 1.5]
+        \draw (0,0) to [short, *-] (4.5,0) {};
+        \draw (4.5,0) node[npn, anchor=E, rotate=-90, color=red](npn1){};
+        \draw (npn1.C) to [short, -o] (7,0){} node[above=1mm]{DIS} node[below=1mm]{7};
+        \draw (0,0) node[ground]{};
+        \draw (0,0) 
+            to [R, l=\SI{5}{\kilo\ohm}, color=blue] (0,1.8)
+            to [R, l=\SI{5}{\kilo\ohm}, color=blue] (0, 3.6)
+            to [R, l=\SI{5}{\kilo\ohm}, color=blue] (0, 5.4);
+        \draw (-0.2,5.4) -- node[anchor=south, color=red] {VCC} (0.2,5.4);
+        \draw (1.2,1.8) node[op amp, color=red](opamp1){};
+        \draw (1.2,3.6) node[op amp, color=red](opamp2){};
+        \draw 
+            (opamp1.+) to [short, -*] ++(-0.4,0){}
+            (opamp2.-) to [short, -*] ++(-0.4,0){} 
+                to [short, -o] ++(-1,0)
+                node[above=0.2mm]{CTRL} node[below=0.2mm]{5};
+        \draw
+            (opamp1.-) to [crossing] ++(-0.8,0) to[short, -o] ++(-0.6,0) 
+            node[above=0.2mm]{TRG} node[below=0.2mm]{2}
+            (opamp2.+) to [crossing] ++(-0.8,0) to[short, -o] ++(-0.6,0)
+            node[above=0.2mm]{THR} node[below=0.2mm]{6};
+        \draw (3.5,2.7) node[flipflop sr-rst, external pins width=0] (SR1){};
+        \draw 
+            (SR1.pin 1) -| (opamp2.out)
+            (SR1.pin 3) -| (opamp1.out)
+            (SR1.up) -- ++(0,1) 
+            to [short,-o] ++(0,1) 
+            node[left=1mm]{\ctikztextnot{RST}} node[right=1mm]{4};
+        \draw 
+            let 
+                \p1 = (npn1.B),
+                \p2 = (SR1.pin 6)
+            in 
+                (SR1.pin 6) to [short, -*] (\x1, \y2){}
+                (npn1.B) -- (\x1, \y2){}
+                (\x1, \y2) to[inline not] ++(2,0) 
+                to[short, -o] ++(0,0) node[above=1mm]{OUT} node[below=1mm]{3};
+        %\draw (SR1.pin 6) to [short, -*] ++(1,0) coordinate(nin);
+        %\draw (npn1.B) -- (nin);
+        %\draw (nin) to[inline not] ++(2,0);
+    \end{circuitikz}
+    \caption{555 Timer Circuit}
+    \label{fig:555_internal_circuit}
+\end{figure}
+
+Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will use in this chapter's circuit examples.
+\begin{figure}[htp]
+    \centering
+    \begin{circuitikz}[scale = 1.5]
+        \TIMER555(0,0){1}
+    \end{circuitikz}
+    \caption{555 Timer Symbol}
+    \label{fig:555_symbol}
+\end{figure}
