@@ -183,7 +183,7 @@ There are two kinds of RGB LED, one shares the cathode pin and the other shares 
 
 
 \section{Lesson 4: Astable Multivibrator}
-\subsection{Overview}
+\subsection{Objective}
 In this activity, we will make an astable multivibrator using BJTs and flash two LEDs.
 \subsection{Components Required}
 \begin{enumerate}
@@ -299,7 +299,7 @@ By changing the values of series RC we have change the time period of oscillatio
 
 
 \section{Lesson 5: Transistor as Touch Sensor}
-\subsection{Overview}
+\subsection{Objective}
 In this activity we will build a very basic touch sensor using transistors.
 \subsection{Components Required}
 \begin{enumerate}
@@ -391,7 +391,7 @@ Therefore, we have connected the base of $T2$ to the emitter of $T1$ and the bas
 
 
 \section{Lesson 6: Flip Flop}
-\subsection{Overview}
+\subsection{Objective}
 In this activity we'll use transistors and push buttons to make a flip flop circuit.
 \subsection{Components Required}
 \begin{enumerate}
@@ -519,7 +519,7 @@ Now, when we press the button $B_1$ the current going to the base of $T_1$ will 
 
 
 \section{Lesson 7: On/Off Touch using Transistors}
-\subsection{Overview}
+\subsection{Objective}
 In this acitivity we will make an on off touch switch using transistors, which will remember its state.
 \subsection{Components Required}
 \begin{enumerate}
@@ -719,7 +719,7 @@ Now, when we touch the pin header marked \emph{off}, we introduce our body resis
 
 
 \section{Lesson 8: Toggle Switch using Transistors}
-\subsection{Overview}
+\subsection{Objective}
 In this activity we will make an toggle switch which toggles the output state using push button and transistors.
 \subsection{Components Required}
 \begin{enumerate}
@@ -963,7 +963,7 @@ Now, when we again press the switch, the feedback current going to base of $T2$,
 
 
 \section{Lesson 9: Two Color LED Flasher using Transistors}
-\subsection{Overview}
+\subsection{Objective}
 In this activity we will use the astable multivibrator to flash a rgb led.
 \subsection{Components Required}
 \begin{enumerate}
@@ -1027,4 +1027,119 @@ This circuit operation is similar to that of astable multivibrator. Both the cap
 \end{figure}
 
 
+
 \section{Lesson 10: Light Sensitive LED using LDR}
+\subsection{Objective}
+In this activity we will make light sensitive LED, which will light up in darkness.
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item RGB LED (Common Cathode) $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item LDR (Photoresistor) $\times$ 1
+    \item Male-Male jumper wire $\times$ 3
+\end{enumerate}
+\subsection{Circuit}
+\begin{figure}[htp]
+    \centering
+    \begin{circuitikz}[scale = 2]
+        \draw (0,0) node[ground](gnd1){};
+        \draw (0,1) node[npn](t1){$T_1= 2N2222$};
+        \draw (gnd1) -- ++(-1,0)
+            to[sR,l=$LDR$] (-1,1)
+            -- (t1.B);
+        \draw (t1.C) to[empty led, invert, mirror] (0,2)
+                to[R, l=$\SI{220}{\ohm}$] (0,3)
+                node[vcc](vcc1){$V_cc$};
+        \draw (vcc1) -| (-1,1) to[short, *-] ++(0,0);
+        \draw (gnd1) -- (t1.E);
+    \end{circuitikz}
+    \caption{Light Sensitive LED}
+    \label{fig:ldr_bjt_led}
+\end{figure}
+\subsection{Circuit Explanation}
+We have used LDR in a voltage divider configuration. When there is change in light falling on the LDR, the voltage
+drop across it will change due to change in it's resistance.
+\begin{figure}[htp]
+    \centering
+    \begin{circuitikz}[scale = 2]
+        \draw (0,0) -- (-1,0)
+            to[sR, l=$R_{LDR}$] (-1,1) node[](A){}
+            to[R, l=$R_{fixed}$] (-1,2) -- (0,2);
+        \draw[-latex]
+            (A) to[short, *-] (0,1);
+        \draw (-0.1,2.1) node[]{$V_{cc}$};
+        \draw (-0.1,1.1) node[]{$V_{out}$};
+        \draw (-0.1,0.1) node[]{$GND$};
+    \end{circuitikz}
+    \caption{LDR as Voltage Divider}
+    \label{fig:ldr_volt_div}
+\end{figure}
+
+The output voltage ($V_{out}$) can be calculate by using the formula -
+\begin{align*}
+    V_{out} = V_{cc} \times \frac{R_{LDR}}{R_{LDR} + R_{fixed}}
+\end{align*}
+According to LDR datasheet, we can find the threshold value of $R_{LDR}$ in dark and daylight, 
+after that we need to find the value of $R_{fixed}$ such that the following conditions below are met -
+\begin{enumerate}
+    \item $0.7\si{\volt} \leq V_{out}$ in the dark.
+    \item $0.7\si{\volt} > V_{out}$ in the daylight.
+    \item The base current should be more than 20\si{\uA}
+\end{enumerate}
+
+In dark, $R_{LDR} = 550\si{\kohm}$ and in daylight, $R_{LDR} = 6\si{\kohm}$.
+
+Let's work out each condition one by one.
+
+\emph{The first condition}
+\begin{align*}
+    0.7\si{\V} & \leq V_{out} \\
+    V_{out} & \leq V_{cc} \times \frac{R_{LDR}}{R_{LDR} + R_{fixed}} \\
+    0.7\si{\V} & \leq 5\si{\V} \times \frac{550\si{\kohm}}{550\si{\kohm} +  R_{fixed}} \\
+    R_{fixed} + 550\si{\kohm} & \leq \frac{5}{0.7} \times 550\si{kohm} \\
+    R_{fixed} & \leq 3928.57\si{\kohm} - 550\si{\kohm} \\
+    R_{fixed} & \leq 3.38\si{\Mohm} \\
+\end{align*}
+
+\emph{The second condition}
+\begin{align*}
+    0.7\si{\V} & > V_{out} \\
+    V_{out} & > V_{cc} \times \frac{R_{LDR}}{R_{LDR} + R_{fixed}} \\
+    0.7 & > 5\si{\V} \times \frac{6\si{\kohm}}{6\si{\kohm} + R_{fixed}} \\
+    R_{fixed} + 6\si{\kohm} & > \frac{5}{0.7} \times 6\si{\kohm} \\
+    R_{fixed} & > 42.86\si{\kohm} - 6\si{\kohm} \\
+    R_{fixed} & > 36.86\si{\kohm} \\
+\end{align*}
+
+\emph{The third condition}
+\begin{align*}
+    V_{cc} & > 0.7\si{\V} + R_{fixed} \times I \\
+    R_{fixed} & < \frac{5 - 0.7}{20\si{\uA}} \\
+    R_{fixed} & < 215\si{\kohm} \\
+\end{align*}
+
+Now, analysing all the above three conditions we see that - 
+\begin{align*}
+    36.86\si{\kohm} < R_{fixed} < 215\si{\kohm}
+\end{align*}
+
+We have selected $R_{fixed} = 100\si{\kohm}$.
+
+\subsection{Circuit Picture}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\textwidth]{lesson_circuits/L10/lesson_10.png}
+    \caption{Light sensitive LED on Breadboard}
+    \label{fig:light_sense_bjt_sch}
+\end{figure}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\textwidth]{lesson_circuits/L9/L9-A.png}
+    \caption{Light sensitive LED}
+    \label{fig:ldr_bjt_working_obb}
+\end{figure}
