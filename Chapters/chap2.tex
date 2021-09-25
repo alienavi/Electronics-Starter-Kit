@@ -15,7 +15,7 @@ Before diving into making circuits, we will first learn about the components tha
 \subsection{Resistors}
 Resistor is a passive electric component that resists the flow of current through it. They are used in almost all electrical and electronic circuits and systems. The resistance of a resistor in measured in ohms (\textOmega).
 An ohm is the resistance that occurs when one ampere (A) of current flows through a resistor with potential (or voltage) drop of one volt (V) across it's terminal.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw[very thick] (0,0) to[resistor, color = red] (2,0);
@@ -35,7 +35,7 @@ Ohm's law state that the current through a resistor is directly proportional to 
 \subsection{Light Emitting Diode}
 Light emitting diodes (LEDs) are semiconductor devices that emit lights of different wavelength depending on the substrate semiconductor material used when an electric current is applied. The color of light emitted depends on the amount of energy required by the electrons to cross the band gap of the semiconductor. Since, LEDs are basically a PN junction diode, they allow current flow only in one direction.
 
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw[very thick] (0,0) to[full led, color = red] (2,0);
@@ -64,7 +64,7 @@ A power supply is a hardware component that provides electricity to power device
 The breadboard power supply can provide constant 3.3V or 5V and is compatible with the breadboard power rails, i.e., you can directly plug in on top of the breadboard to have voltage across the power rails.
 The input voltage or power can be provided through the DC barrel jack (for 6-12V) or through the USB connector (5V).
 
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw
@@ -92,7 +92,7 @@ Example: We need 200mA current at 3,3V output, and the input power supply is of 
 
 \subsection{Push Button}
 Push button is use to control or provide input to the circuit. It is normally open and only when you press it the current will flow through it. And when released, the current will stop flowing. Push button have mechanical contacts, so when you press or release it, it doesn't instantaneously make or release contact. It bounces back and forth before making a firm connection.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw[very thick] (0,0) to[push button, color = red] (2,0);
@@ -103,7 +103,7 @@ Push button is use to control or provide input to the circuit. It is normally op
 
 \subsection{Potentiometer}
 A potentiometer (pot) is a variable resistor and comes in different packages, size and values. They generally have 3 terminals. And the resistance between the outer most terminals is equal to the maximum resistance of the potentiometer and the resistance between middle and any outer pin can vary from 0 to the total resistance of potentiometer.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw[very thick] (0,0) to[american potentiometer, color = red] (2,0);
@@ -114,7 +114,7 @@ A potentiometer (pot) is a variable resistor and comes in different packages, si
 
 \subsection{Circuit}
 A circuit is a closed loop that provides path for current to flow. Circuit must have a path that start and end at the same component, or in order words must form a loop. Electronic circuits operates at low voltages.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw
@@ -134,6 +134,8 @@ A circuit has broadly the following components -
     \item Path\/wire (conductive path providing current flow)
 \end{itemize}
 Apart from these, a circuit can have more complex design.
+
+
 \clearpage
 
 % Lesson starts here
@@ -151,7 +153,7 @@ In this activity you'll learn how to turn on an LED
     \item Male to Male Jumper Wires $\times$ 2
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -180,7 +182,7 @@ In this activity you'll learn how to turn on an LED
     \label{fig:simple_led_circuit}
 \end{figure}
 Throughout this guide we'll be using these symbols for power supply.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -209,7 +211,7 @@ Throughout this guide we'll be using these symbols for power supply.
     \label{fig:led_circuit}
 \end{figure}
 \subsection{Circuit Explanation}
-If we look at the graphs in the datasheet of RED led\cite{tlur640}, the forward current through the led ($I_F$) is typically 
+If we look at the graphs in the data-sheet of RED led\cite{tlur640}, the forward current through the led ($I_F$) is typically 
 in between \SI{10}{mA} to \SI{20}{mA} and the voltage drop ($V_F$) across it is \SI{2}{V}. If we directly connect the LED across 
 \SI{5}{V} supply it will burn out due to excessive power. Therefore, we need a resistor in series with the LED to drop the voltage. 
 This resistor is referred as the current-limiting resistor. If you look at the figure \ref{fig:simple_led_circuit} both the circuits 
@@ -224,15 +226,15 @@ We'll take the average value for $I_F$
         &= \frac{3 \times 1000}{15} \\
     R_S &= \SI{200}{\Omega}
 \end{align*}
-Since, in the kit a \SI{220}{\ohm} is available, we will use that. If we calculate the current using a \SI{220}{\ohm} resistor, it will $3 \div 220 = \SI{0.0136}{\ampere} = \SI{13.6}{\mA}$ which is in the range provided by the datasheet.
+Since, in the kit a \SI{220}{\ohm} is available, we will use that. If we calculate the current using a \SI{220}{\ohm} resistor, it will $3 \div 220 = \SI{0.0136}{\ampere} = \SI{13.6}{\mA}$ which is in the range provided by the data-sheet.
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L1/lesson_1.png}
-    \caption{Simple Circuit on Breadboard}
+    \caption{Simple Circuit Breadboard Schematic}
     \label{fig:sc_bb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L1/L1-A.png}
     \caption{Simple Circuit on Breadboard}
@@ -256,7 +258,7 @@ In this activity we'll turn on the led using a push button.
     \item Push Button $\times$ 1
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw
@@ -272,19 +274,19 @@ In this activity we'll turn on the led using a push button.
 \subsection{Circuit Explanation}
 This circuit is similar to the one we made previously, except for the fact that we have a push button in series. The button is normally open, meaning no current flows through the circuit (no complete loop or path) and when we press the button the path is complete and LED will turn on.
 \subsection{Circuit Photo}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L2/lesson_2.png}
-    \caption{Circuit Schematic}
+    \caption{Breadboard Schematic}
     \label{fig:pb_led_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L2/L2-A.png}
     \caption{LED Off, Switch Open}
     \label{fig:pb_led_offl}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L2/L2-B.png}
     \caption{LED On, Switch Closed/Pressed}
@@ -308,7 +310,7 @@ In this activity, we'll control the LED brightness/intensity with help on a pote
     \item Potentiometer $\times$ 1
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw
@@ -325,19 +327,19 @@ In this activity, we'll control the LED brightness/intensity with help on a pote
 \subsection{Circuit Explanation}
 When the potentiometer resistance $R_{pot}$ is $0\Omega$, the LED will be in series with $R_S$ and glow. As we'll increase the resistance of potentiometer the effective series resistance will increase $R_t = R_S + R_{pot}$. With increase in the series resistance, the current through the circuit will decrease according to the Ohm's law ($I \propto \frac{1}{R}$) changing the intensity of the LED.
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L3/lesson_3.png}
-    \caption{Circuit Schematic}
+    \caption{Breadboard Schematic}
     \label{fig:pot_led_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L3/L3-A.png}
     \caption{Max Intensity, $R_{pot} = 0$}
     \label{fig:pot_led_max}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L3/L3-B.png}
     \caption{Min Intensity, $R_{pot} = 10\si{\kilo\ohm}$}
@@ -345,14 +347,3 @@ When the potentiometer resistance $R_{pot}$ is $0\Omega$, the LED will be in ser
 \end{figure}
 
 
-
-\section{DIY: Activities}
-\begin{itemize}
-    \item Calculate series resistance for RED led using 3.3V power supply
-\end{itemize}
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.77\textwidth]{ha-gray-conv-crp.jpg}
-%    \caption{Picture of the M83 galaxy, image taken from the WFC3 ERS M83 Data Products, http://archive.stsci.edu/prepds/wfc3ers/m83datalist.html}
-%    \label{fig:awesome_image}
-%\end{figure}

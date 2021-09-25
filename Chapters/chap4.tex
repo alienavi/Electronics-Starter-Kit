@@ -22,7 +22,7 @@ Let's take a look at the pins of 555 Timer IC:
     \item \textbf{RST - Pin 4} Reset pin is active low, which means when this pin is momentarily grounded the 555 timer will reset it's state and will stop until it is triggered again.
 \end{enumerate}
 
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 1.5]
         \draw (0,0) to [short, *-] (4.5,0) {};
@@ -71,7 +71,7 @@ Let's take a look at the pins of 555 Timer IC:
 \end{figure}
 
 Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will use in this chapter's circuit examples.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 1.5]
         \TIMER555(0,0){1}
@@ -80,21 +80,55 @@ Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will u
     \label{fig:555_symbol}
 \end{figure}
 
+\section{555 : Operating Modes}
+The 555 timer has 3 modes of operation and all of the upcoming activities utilizes one or more operation modes of 555.
+In this section we will learn how to use different modes of operation of 555, after that we will build circuits using these modes.
+\subsection{Astable Mode}
+As the name suggests, in astable mode there is no stable state. The output continuously switches between high and low producing an
+square wave. This circuit can be used for turning an LED on and off at regular intervals or act as a clock input for digital ICs
+or control a motor by switching it on and off at regular time period.
+\subsection{Monostable Mode}
+Monostable means only one stable state. In this mode 555 has only one stable state and can produce a pulse of set duration as a 
+response against a trigger. The output stays low (the stable state) as long as there is no trigger received by the 555. Once, a
+trigger event happens, the output momentarily goes to high and then falls back to low after a set duration. This circuit can be 
+used to provide a delay pulse, or turn on LED or motor or any mechanism for a fixed duration of time.
+\subsection{Bistable Mode}
+In Bistable mode the 555 has two stable states. When it receives a trigger input pulse, the output goes to high state and stays there 
+until it receives a reset pulse, which makes the output fall back to low. This circuit is sometimes called as flip/flop also, because 
+it can store the value of it's state for as long as the device is not reset or set.
+
+\clearpage
+
 \section{Lesson 11: 555 LED Flasher}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 7
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L11/lesson_11.png}
     \caption{555 LED flasher Breadboard Schematic}
     \label{fig:555_led_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L11/L11-A.png}
     \caption{555 LED flasher: LED OFF}
     \label{fig:555_led_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L11/L11-B.png}
     \caption{555 LED flasher: LED ON}
@@ -102,20 +136,36 @@ Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will u
 \end{figure}
 
 \section{Lesson 12: 555 Dual LED Flasher}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item Blue LED $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 2
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 7
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L12/lesson_12.png}
     \caption{555 Dual LED flasher Breadboard Schematic}
     \label{fig:555_2led_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L12/L12-A.png}
     \caption{555 Dual LED flasher 1}
     \label{fig:555_2led_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L12/L12-B.png}
     \caption{555 LED flasher 2}
@@ -123,20 +173,37 @@ Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will u
 \end{figure}
 
 \section{Lesson 13: Fading LED using 555}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item 2N2222 $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{1}{\Mohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 11
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L13/lesson_13.png}
     \caption{Fading LED using 555 Breadboard Schematic}
     \label{fig:555_fled_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L13/L13-A.png}
     \caption{LED fading 1}
     \label{fig:555_fled_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L13/L13-B.png}
     \caption{LED fading 2}
@@ -144,278 +211,472 @@ Figure \ref{fig:555_symbol} shows the schematic symbol for 555 IC that we will u
 \end{figure}
 
 \section{Lesson 14: Bistable Button Flip/Flop using 555}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item Push Button $\times$ 2
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 2
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 9
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L14/lesson_14.png}
     \caption{Bistable Button Flip/Flop using 555 Breadboard Schematic}
     \label{fig:555_ff_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L14/L14-A.png}
     \caption{FF Idle}
     \label{fig:555_ff_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L14/L14-B.png}
     \caption{FF SET Button Pressed}
     \label{fig:555_ff_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L14/L14-C.png}
     \caption{FF Idle after leaving SET button}
     \label{fig:555_ff_obb2}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L14/L14-D.png}
     \caption{FF RST Button Pressed}
     \label{fig:555_ff_obb3}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L14/L14-E.png}
     \caption{FF Idle after leaving RST Button}
     \label{fig:555_ff_obb4}
 \end{figure}
 \section{Lesson 15: Toggle Switch with 555}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item Push Button $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 2
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 11
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L15/lesson_15.png}
     \caption{Toggle Switch using 555 Breadboard Schematic}
     \label{fig:555_ts_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-A.png}
     \caption{Idle}
     \label{fig:555_ts_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-B.png}
     \caption{Button Pressed: LED turned ON}
     \label{fig:555_ts_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-C.png}
     \caption{Button released}
     \label{fig:555_ts_obb2}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-D.png}
     \caption{Button Pressed: LED turned OFF}
     \label{fig:555_ts_obb3}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-E.png}
     \caption{Button released}
     \label{fig:555_ts_obb4}
 \end{figure}
 \section{Lesson 16: Timer Delay using 555}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Red LED $\times$ 1
+    \item Push Button $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{1}{\Mohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 11
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L15/lesson_15.png}
     \caption{Timer Delay using 555 Breadboard Schematic}
     \label{fig:555_timer_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-A.png}
     \caption{Idle}
     \label{fig:555_timer_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-B.png}
     \caption{Button Pressed}
     \label{fig:555_timer_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-C.png}
     \caption{Button released}
     \label{fig:555_timer_obb2}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L15/L15-D.png}
     \caption{LED turned off after delay time}
     \label{fig:555_timer_obb3}
 \end{figure}
 \section{Lesson 17: Single Tone Buzzer with 555}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Active Buzzer $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 7
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L17/lesson_17.png}
     \caption{Single tone Buzzer with 555 Breadboard Schematic}
     \label{fig:555_sbuz_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L17/L17-A.png}
     \caption{Single tone Buzzer}
     \label{fig:555_sbuz_obb}
 \end{figure}
 \section{Lesson 18: Short Beep}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Active Buzzer $\times$ 1
+    \item 1N4007 Diode $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{1}{\Mohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 1
+    \item \SI{2.2}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 10
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L18/lesson_18.png}
     \caption{Short Beep using 555 Breadboard Schematic}
     \label{fig:555_sbeep_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L18/L18-A.png}
     \caption{Short Beep}
     \label{fig:555_sbeep_obb}
 \end{figure}
 \section{Lesson 19: Break Beam Detector using 555 and LDR}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Passive Buzzer $\times$ 1
+    \item White LED $\times$ 1
+    \item LDR $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 3
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 15
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L19/lesson_19.png}
     \caption{Break Beam Detector using 555 and LDR Breadboard Schematic}
     \label{fig:555_bbdet_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L19/L19-A.png}
     \caption{No Obstacle: Buzzer OFF}
     \label{fig:555_bbdet_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L19/L19-B.png}
     \caption{Obstacle: Buzzer ON}
     \label{fig:555_bbdet_obb1}
 \end{figure}
 \section{Lesson 20: Light reactive buzzer using 555 and LDR}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item Passive Buzzer $\times$ 1
+    \item LDR $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 9
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L20/lesson_20.png}
     \caption{Light reactive Buzzer Breadboard Schematic}
     \label{fig:555_ldrbuzz_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L20/L20-A.png}
     \caption{Light reactive Buzzer}
     \label{fig:555_ldrbuzz_obb}
 \end{figure}
 \section{Lesson 21: Audio Tone/Siren}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 2
+    \item Passive Buzzer $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 5
+    \item \SI{100}{\kilo\ohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{10}{\micro\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 14
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L21/lesson_21.png}
     \caption{Audio Tone/Siren Breadboard Schematic}
     \label{fig:555_audsi_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L21/L21-A.png}
     \caption{Audio Tone/Siren}
     \label{fig:555_audsi_obb}
 \end{figure}
 \section{Lesson 22: Traffic Light}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 2
+    \item Red LED $\times$ 1
+    \item Yellow LED $\times$ 1
+    \item Green LED $\times$ 1
+    \item 2N2222 $\times$ 1
+    \item \SI{220}{\ohm} $\times$ 3
+    \item \SI{330}{\ohm} $\times$ 3
+    \item \SI{10}{\kilo\ohm} $\times$ 2
+    \item \SI{1}{\Mohm} $\times$ 2
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{2.2}{\micro\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 2
+    \item Male-Male jumper wire $\times$ 22
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L22/lesson_22.png}
     \caption{Traffic Light Breadboard Schematic}
     \label{fig:555_trlight_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L22/L22-A.png}
     \caption{Green Light On}
     \label{fig:555_trlight_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L22/L22-C.png}
     \caption{Yellow Light On}
     \label{fig:555_trlight_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L22/L22-B.png}
     \caption{Red Light On}
     \label{fig:555_trlight_obb2}
 \end{figure}
 \section{Lesson 23: Doorbell}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 2
+    \item 2N2222 $\times$ 3
+    \item Passive Buzzer $\times$ 1
+    \item Push Button $\times$ 1
+    \item \SI{1}{\kilo\ohm} $\times$ 3
+    \item \SI{10}{\kilo\ohm} $\times$ 3
+    \item \SI{1}{\Mohm} $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{1}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 23
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L23/lesson_23.png}
     \caption{Doorbell Breadboard Schematic}
     \label{fig:555_doorbell_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L23/L23-A.png}
     \caption{Idle: Buzzer OFF}
     \label{fig:555_doorbell_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L23/L23-B.png}
     \caption{Button Pressed: Buzzer ON for sometime}
     \label{fig:555_doorbell_obb1}
 \end{figure}
 \section{Lesson 24: PWM Speed Controller}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 1
+    \item 2N2222 $\times$ 1
+    \item DC Motor $\times$ 1
+    \item Propeller $\times$ 1
+    \item 1N4007 Diode $\times$ 2
+    \item \SI{1}{\kilo\ohm} $\times$ 1
+    \item \SI{2}{\kilo\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} $\times$ 1
+    \item \SI{10}{\kilo\ohm} Potentiometer $\times$ 1
+    \item \SI{100}{\nano\farad} $\times$ 2
+    \item \SI{10}{\micro\farad} $\times$ 1
+    \item Male-Male jumper wire $\times$ 11
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     %\includegraphics[width=0.8\textwidth]{lesson_circuits/L24/lesson_24.png}
     \caption{PWM Speed Controller Breadboard Schematic}
     \label{fig:555_pwm_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L24/L24-C.png}
     \caption{PWM 0 Duty Cycle}
     \label{fig:555_pwm_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L24/L24-A.png}
     \caption{PWM half Duty Cycle}
     \label{fig:555_pwm_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{lesson_circuits/L24/L24-C.png}
+    \includegraphics[width=\textwidth]{lesson_circuits/L24/L24-B.png}
     \caption{PWM full Duty Cycle}
     \label{fig:555_pwm_obb2}
 \end{figure}
 \section{Lesson 25: 555 RGB Flasher}
+\subsection{Components Required}
+\begin{enumerate}
+    \item Breadboard Power Supply $\times$ 1
+    \item 9V Battery $\times$ 1
+    \item 9V Battery Connector $\times$ 1
+    \item Breadboard $\times$ 1
+    \item 555 IC $\times$ 3
+    \item RGB LED $\times$ 1
+    \item 2N2222 $\times$ 3
+    \item \SI{220}{\ohm} $\times$ 3
+    \item \SI{10}{\kilo\ohm} $\times$ 3
+    \item \SI{100}{\kilo\ohm} $\times$ 3
+    \item \SI{1}{\Mohm} $\times$ 3
+    \item \SI{100}{\nano\farad} $\times$ 3
+    \item \SI{2.2}{\micro\farad} $\times$ 1
+    \item \SI{4.7}{\micro\farad} $\times$ 1
+    \item \SI{10}{\micro\farad} $\times$ 4
+    \item Male-Male jumper wire $\times$ 30
+\end{enumerate}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L25/lesson_25.png}
     \caption{RGB LED Flasher Breadboard Schematic}
     \label{fig:555_rgb_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L25/L25-A.png}
     \caption{RGB Flasher}
     \label{fig:555_rgb_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{lesson_circuits/L25/L25-C.png}
+    \includegraphics[width=\textwidth]{lesson_circuits/L25/L25-B.png}
     \caption{RGB Flasher}
     \label{fig:555_rgb_obb1}
 \end{figure}

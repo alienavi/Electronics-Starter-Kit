@@ -21,7 +21,7 @@ Transistors are used to amplify or switch electronic signals and electrical powe
     \item Emitter: The second largest semiconductor region of the transistor.
     \item Base: Middle region of the transistor. This serves as a gatekeeper that determines the amount of current that can flow through emitter-collector regions.
 \end{itemize}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -64,10 +64,10 @@ There are 4 modes in which a transistor works -
 \end{enumerate}
 If we make sure that the transistor operates in only cut-off or saturation region, then it can act like a switch turning current flow ON or OFF by controlling the base voltage. In this guide most of the circuits will use transistor in Saturation \& cut-off mode.
 
-In NPN transistor, the base voltage should be higher than the emitter voltage by threshold voltage $V_{th}$, defined in the datasheet of the transistor. Generally it is near about \SI{0.7}{\volt}.
+In NPN transistor, the base voltage should be higher than the emitter voltage by threshold voltage $V_{th}$, defined in the data-sheet of the transistor. Generally it is near about \SI{0.7}{\volt}.
 
 For PNP, the base voltage should be lower than the emitter voltage by $V_{th}$.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -108,7 +108,7 @@ For both the transistors, $I_E = I_C + I_B$
 
 \subsection{Capacitor}
 Capacitor is a pretty simple electronic device. It consists of two conductive plates separated by an insulated medium called dielectric. Capacitors when powered are able to store energy in the form of electric field between the two plates. With different types of dielectric, there are different types of capacitors and have different qualities and uses. Capacitors can be polarized when dielectric used is polarized and favours electric field in one direction. 
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -125,7 +125,7 @@ Capacitor is a pretty simple electronic device. It consists of two conductive pl
             \draw
                 (0,0) to[curved capacitor] (0,1);
         \end{circuitikz}
-        \caption{Polazired}
+        \caption{Polarized}
     \end{subfigure}
     \caption{Capacitor Symbol}
     \label{fig:cap_symbol}
@@ -136,10 +136,10 @@ Capacitors or Caps are used in many ways and can be found in almost every electr
 On Polar capacitors the exact values in written on the body, for ceramic capacitor the values is written with 2 significant digits and 1 multiplier, for example capacitance of a ceramic capacitor with 105 written on it is, \num{10e4}\si{\pico\farad} = \num{e5}$\times$\num{e-12}\si{\farad} = \num{e-7}\si{\farad} = \SI{0.1}{\micro\farad}
 
 \subsection{LDR}
-Light Dependent Resistor(LDR) or photocell or photoresistor is a semiconductor device which exhibits a very special property, it acts like a resistor but the value of resistance depends on the amount of light falling on it.
+Light Dependent Resistor(LDR) or photocell or photo-resistor is a semiconductor device which exhibits a very special property, it acts like a resistor but the value of resistance depends on the amount of light falling on it.
 
 In bright light, the LDR resistance will be in the range of 0.01-10\si{\kilo\ohm} and in darkness it's resistance will be in the range of 100-1000\si{\kilo\ohm}.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) to[sR] (1,0);
@@ -152,7 +152,7 @@ In bright light, the LDR resistance will be in the range of 0.01-10\si{\kilo\ohm
 RGB LED is a combination of all three LEDs (RED, GREEN, BLUE) in one single package. You can produce different colors using RGB LEDs by configuring the intensity of each LED.
 
 There are two kinds of RGB LED, one shares the cathode pin and the other shares the anode pin.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -178,9 +178,8 @@ There are two kinds of RGB LED, one shares the cathode pin and the other shares 
     \caption{RGB LED Symbol}
     \label{fig:rgb_symbol}
 \end{figure}
+
 \clearpage
-
-
 
 \section{Lesson 4: Astable Multivibrator}
 \subsection{Objective}
@@ -199,7 +198,7 @@ In this activity, we will make an astable multivibrator using BJTs and flash two
     \item Male-Male jumper wire $\times$ 6
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) node[ground]{};
@@ -228,8 +227,8 @@ In this activity, we will make an astable multivibrator using BJTs and flash two
 \subsection{Circuit Explanation}
 Let's assume that $T1$ has just turned off and $T2$ has just turned on which means $C_2$ is fully charged and $C_1$ is discharged. Since, $T1$ is in cut-off mode, the collector $T1.C$ will rise to $V_{cc}$ potential and the potential across the $C_2$ capacitor will  be $V_{cc} - V_{th}$, where $V_{th}$ is the threshold voltage of transistors. 
 
-$T2$ is fully on, the capacitor $C_1$ will start charging through resistor $R_1$ and the $LED_1$ will be turned on. When the plate of $C_1$ connected to base of $T1$ rises to potential $V_{th}$ it will pull $T1$ into conduction and then saturation mode. When the transistor $T1$ is in saturation mode it will immediately pull the capacitor $C_1$ to ground, this rapid change in voltage at the plate of capacitor $C_1$ connected to $T1.C$ causes an equal and instantaneous fall in voltage at the plate connected to base of $T2$, turning it hard off. Now $T1$ is On turning $LED_1$ on and $T2$ is off and the same cycle repeats again, $C2$ starts chargin turning $T2$ on and $C1$ turning $T1$ off.
-\begin{figure}[htp]
+$T2$ is fully on, the capacitor $C_1$ will start charging through resistor $R_1$ and the $LED_1$ will be turned on. When the plate of $C_1$ connected to base of $T1$ rises to potential $V_{th}$ it will pull $T1$ into conduction and then saturation mode. When the transistor $T1$ is in saturation mode it will immediately pull the capacitor $C_1$ to ground, this rapid change in voltage at the plate of capacitor $C_1$ connected to $T1.C$ causes an equal and instantaneous fall in voltage at the plate connected to base of $T2$, turning it hard off. Now $T1$ is On turning $LED_1$ on and $T2$ is off and the same cycle repeats again, $C2$ starts charging turning $T2$ on and $C1$ turning $T1$ off.
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) node[ground]{};
@@ -283,16 +282,16 @@ In our circuit we will use $R_2 = R_3 = 220\si{\ohm}$, $R_1 = R_4 = 100\si{\kilo
 
 By changing the values of series RC we have change the time period of oscillation.
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L4/lesson_4.png}
     \caption{Circuit Schematic}
     \label{fig:asm_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L4/L4-A.png}
-    \caption{Astable Multivibrator on Breadboard}
+    \caption{Astable Multivibrator Breadboard Schematic}
     \label{fig:asm_obb}
 \end{figure}
 
@@ -315,7 +314,7 @@ In this activity we will build a very basic touch sensor using transistors.
     \item Male-Male jumper wire $\times$ 5
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) node[npn](npn1){$T2=2N2222$};
@@ -336,7 +335,7 @@ In this activity we will build a very basic touch sensor using transistors.
 By default both the transistors are turned off. When you touch the male pin headers connected between $VCC$ and the base of $T1$, you body acts like a resistor between them, allowing a very small current($I_{B1}$) to pass through the base of $T1$. This current is not sufficient to push $T1$ into saturation.
 
 Therefore, we have connected the base of $T2$ to the emitter of $T1$ and the base current($I_{B2}$) for $T2$ is approximately equal to the collector current($I_{C1}$) of $T1$, which is $\beta \times I_{B1}$. This current is sufficient to pull the $T2$ transistor into saturation mode and the LED turn on.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) node[npn](npn1){$2N2222$};
@@ -370,19 +369,19 @@ Therefore, we have connected the base of $T2$ to the emitter of $T1$ and the bas
     \label{fig:transistor_touch_working}
 \end{figure}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L5/lesson_5.png}
-    \caption{Circuit Schematic}
+    \caption{Breadboard Schematic}
     \label{fig:simple_touch_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L5/L5-A.png}
     \caption{Touch Switch on Breadboard}
     \label{fig:stouch_obb}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L5/L5-B.png}
     \caption{Touch Switch on Breadboard - LED glows on touching the pin headers}
@@ -407,7 +406,7 @@ In this activity we'll use transistors and push buttons to make a flip flop circ
     \item Male-Male jumper wire $\times$ 8
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (2, 0) node[npn](npn1){$T_1=2N2222$};
@@ -445,7 +444,7 @@ In this activity we'll use transistors and push buttons to make a flip flop circ
 Let's assume that $L_1$ is on, which means there is a very small amount of current flowing through the $L_2$ to the base of transistor $T_1$. The current flowing through $L_1$ will prefer to go through the transistor $T_1$ because this path offers the least resistance.
 
 Now, when we press the button $B_1$ the current going to the base of $T_1$ will now directly go to the ground, switching $T_1$ off. And there will be a small current going through the led $L_1$ to the base of transistor $T_2$, pushing it into saturation. And when we leave the button $B_1$ the current through $L_2$ will go through $T_2$ only, as it will offer a path with least resistance.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (2, 0) node[npn](npn1){$T_1=2N2222$};
@@ -486,31 +485,31 @@ Now, when we press the button $B_1$ the current going to the base of $T_1$ will 
     \label{fig:flip_flop_working}
 \end{figure}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{lesson_circuits/L6/lesson_6.png}
-    \caption{Circuit Schematic}
+    \caption{Breadboard Schematic}
     \label{fig:ff_bjt_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L6/L6-A.png}
     \caption{Flip/Flop using BJTs on Breadboard}
     \label{fig:ff_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L6/L6-B.png}
     \caption{Flip/Flop using BJTs on Breadboard}
     \label{fig:ff_obb2}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L6/L6-C.png}
     \caption{Flip/Flop using BJTs on Breadboard}
     \label{fig:ff_obb3}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L6/L6-D.png}
     \caption{Flip/Flop using BJTs on Breadboard}
@@ -520,7 +519,7 @@ Now, when we press the button $B_1$ the current going to the base of $T_1$ will 
 
 \section{Lesson 7: On/Off Touch using Transistors}
 \subsection{Objective}
-In this acitivity we will make an on off touch switch using transistors, which will remember its state.
+In this activity we will make an on off touch switch using transistors, which will remember its state.
 \subsection{Components Required}
 \begin{enumerate}
     \item Breadboard Power Supply $\times$ 1
@@ -532,12 +531,12 @@ In this acitivity we will make an on off touch switch using transistors, which w
     \item \SI{10}{\kilo\ohm} $\times$ 1
     \item \SI{100}{\kilo\ohm} $\times$ 1
     \item 2N2222 NPN Transistor $\times$ 3
-    \item 2N2907 PNP Trsnsistor $\times$ 1
+    \item 2N2907 PNP Transistor $\times$ 1
     \item Male pin headers $\times$ 4
     \item Male-Male jumper wire $\times$ 13
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (1.5,3) node[pnp](t1){T1};
@@ -574,7 +573,7 @@ In this acitivity we will make an on off touch switch using transistors, which w
 \end{figure}
 \subsection{Circuit Explanation}
 When we touch the pin headers marked \emph{on}, we introduce our body resistance between $VCC$ and base of transistor $T2$, turning it on. When $T2$ is turned on, it pulls the base of transistor $T1$ to ground, pushing it to saturation mode. A small part of the current flowing through the collector of $T1$ goes to the base of $T2$ through feedback resistor. Now, when we remove our body resistance from the circuit the current through feedback keeps $T2$ on, which make sure the $T1$ is on and the led is glowing.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (1.5,3) node[pnp](t1){T1};
@@ -625,7 +624,7 @@ When we touch the pin headers marked \emph{on}, we introduce our body resistance
 \end{figure}
 
 Now, when we touch the pin header marked \emph{off}, we introduce our body resistance in between the $VCC$ and the base of $T4$, turning it on. The $T4$ collector current goes to the base of $T3$, turning it on. There are two things that causes the led to turn off, base of $T2$ is pulled to ground, and the feedback current keeping it on goes to ground via $T3$. It means $T2$ is switched off, and when $T2$ is off the base of $T1$ is pulled high, turning it hard off.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (1.5,3) node[pnp](t1){T1};
@@ -680,37 +679,37 @@ Now, when we touch the pin header marked \emph{off}, we introduce our body resis
 \end{figure}
 
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/lesson_7.png}
-    \caption{On/Off touch switch using BJTs on Breadboard}
+    \caption{On/Off touch switch using BJTs Breadboard Schematic}
     \label{fig:onoff_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/L7-A.png}
     \caption{On/Off Touch Switch: }
     \label{fig:onoff_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/L7-B.png}
     \caption{On/Off Touch Switch: }
     \label{fig:onoff_obb2}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/L7-C.png}
     \caption{On/Off Touch Switch: }
     \label{fig:onoff_obb3}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/L7-D.png}
     \caption{On/Off Touch Switch: }
     \label{fig:onoff_obb4}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L7/L7-E.png}
     \caption{On/Off Touch Switch: }
@@ -734,12 +733,12 @@ In this activity we will make an toggle switch which toggles the output state us
     \item \SI{100}{\kilo\ohm} $\times$ 2
     \item \SI{1}{\mega\ohm} $\times$ 2
     \item 2N2222 NPN Transistor $\times$ 2
-    \item 2N2907 PNP Trsnsistor $\times$ 1
+    \item 2N2907 PNP Transistor $\times$ 1
     \item 10-XX Push Button $\times$ 1
     \item Male-Male jumper wire $\times$ 10
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,2.5) node[npn](t2){T2};
@@ -775,7 +774,7 @@ In this activity we will make an toggle switch which toggles the output state us
 \end{figure}
 \subsection{Circuit Explanation}
 Let us assume that initially all the transistors are off along with the led. In this case, the capacitor gets charged via the two $1\si{\mega\ohm}$ resistors. And no current is flowing through any transistor.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,2.5) node[npn](t2){T2};
@@ -813,7 +812,7 @@ Let us assume that initially all the transistors are off along with the led. In 
 \end{figure}
 
 When we press the switch, the capacitor's +ve plate is connected to the base of the transistor $T2$, and therefore a base current starts flowing, turning $T2$ on. With $T2$ on the base of transistor $T1$ is pulled to ground, turning it and the led on. There is also a feedback current flowing back to base of $T2$ and $T3$.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,2.5) node[npn](t2){T2};
@@ -856,7 +855,7 @@ When we press the switch, the capacitor's +ve plate is connected to the base of 
 \end{figure}
 
 On leaving the switch, the feedback current keeps the $T2$ on which keeps $T1$ on. Also, this feedback current turn on the $T3$ which discharges the capacitor through it. At this stage all the transistors are on, led is on and the capacitor is completely discharged.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,2.5) node[npn](t2){T2};
@@ -899,7 +898,7 @@ On leaving the switch, the feedback current keeps the $T2$ on which keeps $T1$ o
 \end{figure}
 
 Now, when we again press the switch, the feedback current going to base of $T2$, goes to ground via the capacitor, which is discharged and therefore provide little to no resistance. This turns off the $T2$, and the base of $T1$ is pulled back to $VCC$, causing it to turn off. Now the led is off and all the transistor are not conducting, which is idle state.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,2.5) node[npn](t2){T2};
@@ -941,19 +940,19 @@ Now, when we again press the switch, the feedback current going to base of $T2$,
     \label{fig:toggle_switch_bjt_off}
 \end{figure}
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L8/lesson_8.png}
-    \caption{Toggle Switch using BJTs on Breadboard}
+    \caption{Toggle Switch using BJTs Breadboard Schematic}
     \label{fig:toggle_bjt_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L8/L8-A.png}
     \caption{Toggle Switch: Off State}
     \label{fig:toggle_bjt_obb1}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L8/L8-B.png}
     \caption{Toggle Switch: On State}
@@ -979,7 +978,7 @@ In this activity we will use the astable multivibrator to flash a rgb led.
     \item Male-Male jumper wire $\times$ 5
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) to[short, *-] (0,0) node[ground](gnd1){};
@@ -1011,15 +1010,15 @@ In this activity we will use the astable multivibrator to flash a rgb led.
     \label{fig:rgb_transistor}
 \end{figure}
 \subsection{Circuit Explanation}
-This circuit operation is similar to that of astable multivibrator. Both the capacitors charge and discharge alternatively and thus turn on and off the transistors, causing the led to light up alternatively or in a flashing manner. By changing the capacitor and resistor values independently we can change the turn on and off time of both the leds.
+This circuit operation is similar to that of astable multivibrator. Both the capacitors charge and discharge alternatively and thus turn on and off the transistors, causing the led to light up alternatively or in a flashing manner. By changing the capacitor and resistor values independently we can change the turn on and off time of both the LEDs.
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L9/lesson_9.png}
-    \caption{Two Color LED flasher using BJTs on Breadboard}
+    \caption{Two Color LED flasher using BJTs Breadboard Schematic}
     \label{fig:two_led_bjt_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L9/L9-A.png}
     \caption{Two Color LED flasher}
@@ -1040,11 +1039,11 @@ In this activity we will make light sensitive LED, which will light up in darkne
     \item RGB LED (Common Cathode) $\times$ 1
     \item \SI{220}{\ohm} $\times$ 1
     \item \SI{100}{\kilo\ohm} $\times$ 1
-    \item LDR (Photoresistor) $\times$ 1
+    \item LDR (Photo-resistor) $\times$ 1
     \item Male-Male jumper wire $\times$ 3
 \end{enumerate}
 \subsection{Circuit}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) node[ground](gnd1){};
@@ -1064,7 +1063,7 @@ In this activity we will make light sensitive LED, which will light up in darkne
 \subsection{Circuit Explanation}
 We have used LDR in a voltage divider configuration. When there is change in light falling on the LDR, the voltage
 drop across it will change due to change in it's resistance.
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \begin{circuitikz}[scale = 2]
         \draw (0,0) -- (-1,0)
@@ -1084,7 +1083,7 @@ The output voltage ($V_{out}$) can be calculate by using the formula -
 \begin{align*}
     V_{out} = V_{cc} \times \frac{R_{LDR}}{R_{LDR} + R_{fixed}}
 \end{align*}
-According to LDR datasheet, we can find the threshold value of $R_{LDR}$ in dark and daylight, 
+According to LDR data-sheet, we can find the threshold value of $R_{LDR}$ in dark and daylight, 
 after that we need to find the value of $R_{fixed}$ such that the following conditions below are met -
 \begin{enumerate}
     \item $0.7\si{\volt} \leq V_{out}$ in the dark.
@@ -1123,7 +1122,7 @@ Let's work out each condition one by one.
     R_{fixed} & < 215\si{\kohm} \\
 \end{align*}
 
-Now, analysing all the above three conditions we see that - 
+Now, analyzing all the above three conditions we see that - 
 \begin{align*}
     36.86\si{\kohm} < R_{fixed} < 215\si{\kohm}
 \end{align*}
@@ -1131,13 +1130,13 @@ Now, analysing all the above three conditions we see that -
 We have selected $R_{fixed} = 100\si{\kohm}$.
 
 \subsection{Circuit Picture}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L10/lesson_10.png}
-    \caption{Light sensitive LED on Breadboard}
+    \caption{Light sensitive LED Breadboard Schematic}
     \label{fig:light_sense_bjt_sch}
 \end{figure}
-\begin{figure}[htp]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth]{lesson_circuits/L9/L9-A.png}
     \caption{Light sensitive LED}
