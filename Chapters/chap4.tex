@@ -89,7 +89,12 @@ So, whenever the voltage at TRG or pin 2 of 555 IC is below $\frac{V_{cc}}{3}$, 
 the flip flop, and therefore making the output high and turning off the internal transistor. Just like this, if the voltage at 
 the pin 6 or THR goes above $\frac{2V_{cc}}{3}$ the upper comparator output goes high, it resets the flip flop and thus turning 
 the output low while turning on the internal transistor.
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Components/555.png}
+    \caption{555 Timer IC}
+    \label{fig:555_code}
+\end{figure}
 \subsection{Modes of Operations}
 The 555 timer has 3 modes of operation and all of the upcoming activities utilizes one or more operation modes of 555.
 In this section we will learn how to use different modes of operation of 555, after that we will build circuits using these modes.
@@ -341,6 +346,7 @@ The circuit operates in astable mode as explained in section \ref{astablemode}.
     \label{fig:555_led_obb1}
 \end{figure}
 
+\clearpage
 \section{Lesson 12: 555 Dual LED Flasher}
 \subsection{Objective}
 In this activity we'll flash two LEDs on and off using astable 555 multivibrator circuit.
@@ -410,6 +416,7 @@ the output pin and $V_{cc}$, in such a way that it glows up when output is low a
     \label{fig:555_2led_obb1}
 \end{figure}
 
+\clearpage
 \section{Lesson 13: Fading LED using 555}
 \subsection{Objective}
 In this activity we'll fade an LED up and down using astable 555 multivibrator circuit.
@@ -483,6 +490,7 @@ fading the LED off.
     \label{fig:555_fled_obb1}
 \end{figure}
 
+\clearpage
 \section{Lesson 14: Bistable Button Flip/Flop using 555}
 \subsection{Objective}
 In this activity we'll create bistable 555 circuit.
@@ -563,6 +571,7 @@ This circuit is explained in section \ref{bistablemode}
     \caption{FF Idle after leaving RST Button}
     \label{fig:555_ff_obb4}
 \end{figure}
+\clearpage
 \section{Lesson 15: Toggle Switch with 555}
 \subsection{Objective}
 In this activity we'll create a toggle switch using bistable 555 circuit.
@@ -650,6 +659,7 @@ at pin 6 high, turning the 555 output low. Now the capacitor discharges through 
     \caption{Button released}
     \label{fig:555_ts_obb4}
 \end{figure}
+\clearpage
 \section{Lesson 16: Timer Delay using 555}
 \subsection{Objective}
 In this activity we'll use monostable 555 circuit to turn on an LED for fixed duration.
@@ -727,6 +737,7 @@ This circuit is explained in section \ref{monostable}.
     \caption{LED turned off after delay time}
     \label{fig:555_timer_obb3}
 \end{figure}
+\clearpage
 \section{Lesson 17: Single Tone Buzzer with 555}
 \subsection{Objective}
 In this activity we'll use astable 555 circuit to produce sound using an buzzer.
@@ -781,6 +792,7 @@ In this circuit 555 is in astable mode, with a buzzer connected at the output.
     \caption{Single tone Buzzer}
     \label{fig:555_sbuz_obb}
 \end{figure}
+\clearpage
 \section{Lesson 18: Short Beep}
 \subsection{Objective}
 In this activity we'll make a short beep sound.
@@ -898,6 +910,7 @@ low time, the buzzer produces a short beep tone.
     \caption{Short Beep}
     \label{fig:555_sbeep_obb}
 \end{figure}
+\clearpage
 \section{Lesson 19: Break Beam Detector using 555 and LDR}
 \subsection{Objective}
 In this activity we'll make a break beam detector circuit.
@@ -975,6 +988,7 @@ Now $T1$ is and 555 will start operating in astable mode.
     \caption{Obstacle: Buzzer ON}
     \label{fig:555_bbdet_obb1}
 \end{figure}
+\clearpage
 \section{Lesson 20: Light reactive buzzer using 555 and LDR}
 \subsection{Objective}
 In this activity we'll make a light reactive tone generator.
@@ -1031,6 +1045,7 @@ of light falling on the LDR, the frequency of output is changed, changing the to
     \caption{Light reactive Buzzer}
     \label{fig:555_ldrbuzz_obb}
 \end{figure}
+\clearpage
 \section{Lesson 21: Audio Tone/Siren}
 \subsection{Objective}
 In this activity we'll make an audio tone/siren generator.
@@ -1101,6 +1116,7 @@ different tone after each interval.
     \caption{Audio Tone/Siren}
     \label{fig:555_audsi_obb}
 \end{figure}
+\clearpage
 \section{Lesson 22: Traffic Light}
 \subsection{Objective}
 In this activity we'll make a Traffic Light using 555.
@@ -1218,6 +1234,7 @@ time of 555 output are set such that before the red light turns on again, the ye
     \caption{Red Light On}
     \label{fig:555_trlight_obb2}
 \end{figure}
+\clearpage
 \section{Lesson 23: Doorbell}
 \subsection{Objective}
 In this activity we'll make a doorbell system using 555.
@@ -1313,6 +1330,7 @@ the first 555 goes low.
     \caption{Button Pressed: Buzzer ON for sometime}
     \label{fig:555_doorbell_obb1}
 \end{figure}
+\clearpage
 \section{Lesson 24: PWM Speed Controller}
 \subsection{Objective}
 In this activity we'll control a dc motor using 555 as PWM generator.
@@ -1396,6 +1414,7 @@ cycle is controlled with the help of the potentiometer.
     \caption{PWM full Duty Cycle}
     \label{fig:555_pwm_obb2}
 \end{figure}
+\clearpage
 \section{Lesson 25: 555 RGB Flasher}
 \subsection{Objective}
 In this activity we'll use 3 astable 555 circuit to flash RGB LED

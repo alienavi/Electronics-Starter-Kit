@@ -65,7 +65,12 @@ There are 4 modes in which a transistor works -
     It is similar to active mode, but the direction of current is reversed. The transistors are not meant to operate in Reverse-Active mode.
 \end{enumerate}
 If we make sure that the transistor operates in only cut-off or saturation region, then it can act like a switch turning current flow ON or OFF by controlling the base voltage. In this guide most of the circuits will use transistor in Saturation \& cut-off mode.
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Components/2n2222.png}
+    \caption{Transistor}
+    \label{fig:npn_code}
+\end{figure}
 In NPN transistor, the base voltage should be higher than the emitter voltage by threshold voltage $V_{th}$, defined in the data-sheet of the transistor. Generally it is near about \SI{0.7}{\volt}.
 
 For PNP, the base voltage should be lower than the emitter voltage by $V_{th}$.
@@ -133,13 +138,23 @@ Capacitor is a pretty simple electronic device. It consists of two conductive pl
     \label{fig:cap_symbol}
 \end{figure}
 The value of capacitor is measured in Farads (F), and one farad is a very big value. \emph{The capacitance of earth is \SI{710}{\micro\farad}}.
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Components/capacitors.png}
+    \caption{Different types of Capacitors}
+    \label{fig:cap_code}
+\end{figure}
 Capacitors or Caps are used in many ways and can be found in almost every electronic circuits.
 On Polar capacitors the exact values in written on the body, for ceramic capacitor the values is written with 2 significant digits and 1 multiplier, for example capacitance of a ceramic capacitor with 105 written on it is, \num{10e4}\si{\pico\farad} = \num{e5}$\times$\num{e-12}\si{\farad} = \num{e-7}\si{\farad} = \SI{0.1}{\micro\farad}
 
 \subsection{LDR}
 Light Dependent Resistor(LDR) or photocell or photo-resistor is a semiconductor device which exhibits a very special property, it acts like a resistor but the value of resistance depends on the amount of light falling on it.
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Components/ldr.png}
+    \caption{LDR}
+    \label{fig:ldr_code}
+\end{figure}
 In bright light, the LDR resistance will be in the range of 0.01-10\si{\kilo\ohm} and in darkness it's resistance will be in the range of 100-1000\si{\kilo\ohm}.
 \begin{figure}[!htp]
     \centering
@@ -152,7 +167,12 @@ In bright light, the LDR resistance will be in the range of 0.01-10\si{\kilo\ohm
 
 \subsection{RGB LED}
 RGB LED is a combination of all three LEDs (RED, GREEN, BLUE) in one single package. You can produce different colors using RGB LEDs by configuring the intensity of each LED.
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Components/rgb-led.png}
+    \caption{RGB LED}
+    \label{fig:rgb_code}
+\end{figure}
 There are two kinds of RGB LED, one shares the cathode pin and the other shares the anode pin.
 \begin{figure}[!htp]
     \centering
@@ -299,6 +319,7 @@ By changing the values of series RC we have change the time period of oscillatio
 
 
 
+\clearpage
 \section{Lesson 5: Transistor as Touch Sensor}
 \subsection{Objective}
 In this activity we will build a very basic touch sensor using transistors.
@@ -391,6 +412,7 @@ Therefore, we have connected the base of $T2$ to the emitter of $T1$ and the bas
 \end{figure}
 
 
+\clearpage
 \section{Lesson 6: Flip Flop}
 \subsection{Objective}
 In this activity we'll use transistors and push buttons to make a flip flop circuit.
@@ -519,6 +541,7 @@ Now, when we press the button $B_1$ the current going to the base of $T_1$ will 
 \end{figure}
 
 
+\clearpage
 \section{Lesson 7: On/Off Touch using Transistors}
 \subsection{Objective}
 In this activity we will make an on off touch switch using transistors, which will remember its state.
@@ -719,6 +742,7 @@ Now, when we touch the pin header marked \emph{off}, we introduce our body resis
 \end{figure}
 
 
+\clearpage
 \section{Lesson 8: Toggle Switch using Transistors}
 \subsection{Objective}
 In this activity we will make an toggle switch which toggles the output state using push button and transistors.
@@ -963,6 +987,7 @@ Now, when we again press the switch, the feedback current going to base of $T2$,
 
 
 
+\clearpage
 \section{Lesson 9: Two Color LED Flasher using Transistors}
 \subsection{Objective}
 In this activity we will use the astable multivibrator to flash a rgb led.
@@ -1029,6 +1054,7 @@ This circuit operation is similar to that of astable multivibrator. Both the cap
 
 
 
+\clearpage
 \section{Lesson 10: Light Sensitive LED using LDR}
 \subsection{Objective}
 In this activity we will make light sensitive LED, which will light up in darkness.
