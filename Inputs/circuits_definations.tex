@@ -20,3 +20,11 @@
 \tikzset{flipflop sr-rst/.style={flipflop,
     flipflop def={t1=R, t3=S, t6=Q, n6=1, nu=1},
 }}
+
+\newcommand{\mymotor}[2] % #1 = name , #2 = rotation angle
+{\draw[thick,rotate=#2] (#1) circle (10pt)
+ node[]{$\mathsf M$} 
+++(-12pt,3pt)--++(0,-6pt) --++(2.5pt,0) ++(-2.8pt,6pt)-- ++(2.5pt,0pt);
+\draw[thick,rotate=#2] (#1) ++(12pt,3pt)--++(0,-6pt) --++(-2.5pt,0) 
+++(2.8pt,6pt)-- ++(-2.5pt,0pt);
+}

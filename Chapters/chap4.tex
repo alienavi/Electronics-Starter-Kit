@@ -1335,6 +1335,42 @@ In this activity we'll control a dc motor using 555 as PWM generator.
     \item \SI{10}{\micro\farad} $\times$ 1
     \item Male-Male jumper wire $\times$ 11
 \end{enumerate}
+\subsection{Circuit}
+\begin{figure}[!htp]
+    \centering
+    \begin{circuitikz}[scale = 1.2]
+        \TIMER555(0,0){1}
+        \draw (1 GND) to[short, -*] ++(0,-0.7) node[ground](g1){};
+        \draw (1 CTRL) to[C, l=$100\si{\nano\farad}$] ++(0,-0.5)
+            to[short, -*] ++(0,-0.2)node[](ctr){} |- (g1);
+        \draw (1 VCC) to[short, -*] ++(0,0.5) node[vcc](v1){$V_{cc}$};
+        \draw (1 RESET) to[short, -*] ++(0,0.5)node[](rst){} |- (v1);
+        \draw (1 THR) to[short, -*] ++(-0.5,0) node[](s6){};
+        \draw (1 TRG) to[short, -*] ++(-0.5,0) node[](s2){};
+        \draw (1 DIS) to[short, -*] ++(-0.5,0) node[](s7){};
+        \draw (s7) to[R, l=$100\si{\kohm}$] ++(0,1.5) |- (v1);
+        \draw (s6) -- (s2) to[C, l_=$10\si{\micro\farad}$] 
+            ++(0,-1.5) |- (g1);
+        \draw ($(1 OUT) + (2,0)$) node[npn](t1){};
+        \draw (1 OUT) to[R,l=$2\si{\kohm}$] (t1.B);
+        \draw (t1.E) |- (ctr);
+        \draw (rst) -- ++(3.1,0)node[circ](rr){}
+                to[sV, color=white, name=M1] (t1.C);
+        \mymotor{M1}{90}
+        \draw (s7) to[R, l=$1\si{\kohm}$] ++(-2,0) 
+                to[empty diode] ++(0,-1.5)
+                to[potentiometer, name=Pot, mirror] ++(2,0)
+                to[empty diode] ++(0,1.5);
+        \draw (Pot.wiper) |- (s6);
+        \draw (t1.C) to[short, *-] ++(1,0)
+                to[C, l_=$10\si{\uF}$] ++(0,2) |- (rr);
+    \end{circuitikz}
+    \caption{PWM Speed Controller}
+    \label{fig:555_pwm_speed_cir}
+\end{figure}
+\subsection{Circuit Explanation}
+In this circuit the 555 is in astable mode with two different paths for charging and discharging the timing capacitor. The PWM duty 
+cycle is controlled with the help of the potentiometer.
 \subsection{Circuit Picture}
 \begin{figure}[!htp]
     \centering
@@ -1445,11 +1481,11 @@ In this activity we'll use 3 astable 555 circuit to flash RGB LED
         
         \draw (8,-4) to[short, *-] ++(0,-1) node[ground]{};
         \draw (8,-4) to[full led, color=green] ++(0,1)
-                to[R, l=$220\si{\ohm}$] ++(0,2)node[circ](g1){};
+                to[R] ++(0,2)node[circ](g1){};
         \draw (8,-4) -- ++(1,0) to[full led, color=red] ++(0,1)
                 to[R, l_=$220\si{\ohm}$] ++(0,2)node[circ](r1){};
         \draw (8,-4) -- ++(-1,0) to[full led, color=blue] ++(0,1)
-                to[R, l=$220\si{\ohm}$] ++(0,2)node[circ](b1){};
+                to[R] ++(0,2)node[circ](b1){};
         
         \draw (t1.E) -- ++(2,0) -| (r1);
         \draw (2t1.E) -- ++(2,0) -| (g1);
