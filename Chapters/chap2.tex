@@ -33,6 +33,15 @@ Ohm's law state that the current through a resistor is directly proportional to 
     R = \frac{V}{I} (\Omega)
 \end{align*}
 \subsubsection{Reading Resistor Value}
+To read the value of resistance, first you need to know it's tolerance, this is known as E-series. E-24 series resistors have 5\% 
+tolerance, whereas E-48 has 2\%. Once, you know the tolerance, you need to identify whether it's 4-Bands or 5-Bands. 
+The last band represents tolerance (from the figure \ref{fig:res_color_code} you can tolerance band for 5\%) and the second last 
+is the exponential power of 10. So, if a 4-Bands resistor has a color code of Brown, Green, Orange and Gold it's value will be -
+\begin{align*}
+    R_{Value} &= (1_{Brown}  5_{Green}) \times 10^{(3_{Orange})} \pm 5 \% \\
+    R_{Value} &= (15) \times 10^{(3)} \pm 5\% \\
+    R_{Value} &= 15\si{\kohm} \pm 5\% \\
+\end{align*} 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.8\textwidth]{Components/resistor-color-code.png}
